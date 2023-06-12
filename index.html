@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pedido de Namoro</title>
+  <style>
+    body {
+      background-color: #ffb6c1;
+      text-align: center;
+      margin-top: 100px;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      color: #e91e63;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background-color: #e91e63;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 18px;
+      padding: 12px 24px;
+      cursor: pointer;
+      margin-right: 10px;
+      transition: transform 0.3s;
+    }
+
+    #noButton {
+      background-color: #3f51b5;
+    }
+
+    #noButton:hover {
+      transform: translate(5px, 5px);
+    }
+
+    #response {
+      color: #e91e63;
+      font-size: 24px;
+      margin-top: 40px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="question">Você quer namorar comigo?</h1>
+  <button id="noButton" onmouseover="changeNoButtonPosition()">Não</button>
+  <button onclick="showMessage()" id="yesButton">Sim</button>
+
+  <h2 id="response"></h2>
+
+  <script>
+    function changeNoButtonPosition() {
+      var noButton = document.getElementById("noButton");
+      var xPos = Math.floor(Math.random() * 90);
+      var yPos = Math.floor(Math.random() * 90);
+      noButton.style.position = "absolute";
+      noButton.style.left = xPos + "%";
+      noButton.style.top = yPos + "%";
+    }
+
+    function showMessage() {
+      var question = document.getElementById("question");
+      var noButton = document.getElementById("noButton");
+      var yesButton = document.getElementById("yesButton");
+      var response = document.getElementById("response");
+      question.style.display = "none";
+      noButton.style.display = "none";
+      yesButton.style.display = "none";
+      response.textContent = "Agora estamos namorando!";
+      response.style.display = "block";
+    }
+  </script>
+</body>
+</html>
